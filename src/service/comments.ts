@@ -8,11 +8,24 @@ export interface CommentWithId extends Comment {
   id: string
 }
 
-// ApiKey could be public as service is 100% free
-const apiKey = '$2a$10$YgV6QkRilQSG44a4jQUE3.3Y.ZVnJRjqEQ9.Pds0438i6nk53g3MS'
+const apiKey = '$2a$10$YgV6QkRilQSG44a4jQ53g3MS'
 
 export const getComments = async () => {
-  throw new Error('Not implemented yet')
+  const response = await fetch('https://api.jsonbin.io/v3/b/651618ac54105e766fbb300f', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Access-Key': apiKey
+    }
+  })
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch comments.')
+  }
+
+  const json = await response.json()
+
+  return json?.record
 }
 
 // const delay = async (ms: number) => await new Promise(resolve => setTimeout(resolve, ms))
