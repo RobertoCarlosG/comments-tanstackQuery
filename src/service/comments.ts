@@ -8,7 +8,7 @@ export interface CommentWithId extends Comment {
   id: string
 }
 
-const apiKey = '$2a$10$YgV6QkRilQSG44a4jQ53g3MS'
+const apiKey = '$2a$10$YgV6QkRilQSG44a4jQUE3.3Y.ZVnJRjqEQ9.Pds0438i6nk53g3MS'
 
 export const getComments = async () => {
   const response = await fetch('https://api.jsonbin.io/v3/b/651618ac54105e766fbb300f', {
